@@ -35,10 +35,10 @@ $ sudo apt install update-manager-core
 ```bash
 $ sudo do-release-upgrade
 ```
-- I had the exactly issue that  the article said ("No new release found"). The article also pointed that the first recommended approach is to simply wait, but I am running on a clean VM, so lets test the -d flag
 
 4. Force upgrade
 
+- I had the exactly issue that  the article said ("No new release found"). The article also pointed that the first recommended approach is to simply wait, but I am running on a clean VM, so lets test the -d flag
 ```bash
 $ sudo do-release-upgrade -d
 ```
