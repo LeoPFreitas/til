@@ -8,7 +8,7 @@
 
 I've created an clean VM with ubuntu 18.04 LTS desktop version (default installation) in order to test an forced upgrade. This allows me to test without compromising my OS (especially because I am running this test on my work computer)
 
-Actually, I've followed the steps of an very well written article. I will put the link in the references part.
+Actually, I've followed the steps of an very well written article. I will leave the link in the references part.
 
 ### Steps
 
