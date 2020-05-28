@@ -43,3 +43,33 @@ function a() {
 ```
 
 ![sasa](assets/scope-chain1.png)
+
+## Tricks
+
+```jsx
+function weird() {
+  height = 10;
+  return height;
+}
+
+weird();
+```
+
+We have just created a global variable! It happens because we don't have declared what this variable is (const, var, let..). Those keywords tell JavaScript to put "height" in our variable environment.
+
+Since it is not there, the variable will goes up the scope chain to global environment and create a variable.
+
+**Use strict**
+
+Use strict was introduced as a way to prevent JavaScript for doing unpredictable edges cases.
+
+```jsx
+"use strict";
+
+function weird() {
+  height = 10;
+  return height;
+}
+
+weird(); // reference error
+```
