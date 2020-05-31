@@ -99,3 +99,36 @@ obj.age()();
 // a -> {name: "Leonardo", age: ƒ}
 // b -> {name: "Leonardo", age: ƒ}
 ```
+
+## Tips
+
+```jsx
+var b = {
+  name: "leo",
+  say() {
+    console.log(this);
+  },
+};
+
+var c = {
+  name: "pedro",
+  say() {
+    return function () {
+      console.log(this);
+    };
+  },
+};
+
+var d = {
+  name: "joao",
+  say() {
+    return () => console.log(this);
+  },
+};
+
+b.say(); // {name: "leo", say: ƒ}
+c.say(); // ƒ () { console.log(this)}
+c.say()(); // window {parent: Window, opener: null, top: Window, length: 4, frames: Window, …}
+d.say(); // () => console.log(this)
+d.say()(); // {name: "joao", say: ƒ}
+```
