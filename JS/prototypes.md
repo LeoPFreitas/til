@@ -17,6 +17,7 @@ array.__proto__.__proto__;
 ```
 
 ![prototype-chain](assets/prototype-chain.png)
+![prototype](assets/proto3.png)
 
 ## Example
 
