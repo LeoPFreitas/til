@@ -17,7 +17,7 @@ class MyClass {
 }
 ```
 
-### Calling instance methods
+## Calling instance methods
 
 ```java
 public static void main(String[] args) {
