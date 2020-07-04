@@ -1,5 +1,3 @@
-# Package
-
 ## Grouping classes together
 
 Advantages:
@@ -43,3 +41,11 @@ There is a way to use a class from another package without the import statement.
 java.util.Scanner scanner = new java.util.Scanner(System.in);
 java.util.Date now = new java.util.Date();
 ```
+
+### Important
+
+![package](assets/package.png)
+
+## Default package
+
+If we do not write a package statement before defining our class, it will be placed inside the default package. This package has a big disadvantage — classes located here can't be imported to classes located inside named packages.
