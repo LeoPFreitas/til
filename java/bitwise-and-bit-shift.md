@@ -55,4 +55,4 @@ int mid = left + right >> 1; // this is 15!
 
 When the operators have equal precedence, another rule is used that determines whether the evaluation should be performed from left to right or vice versa. It is called associativity.
 
-![](assets/bitwise.png)
+![bitwise and bit-shift precedence](assets/bitwise.png)
