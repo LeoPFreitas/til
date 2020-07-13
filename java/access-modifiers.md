@@ -2,7 +2,7 @@
 
 Access modifier is a special keyword that specifies who is allowed to use your code or a special part of it. It can be placed in front of any field, method or entire class.
 
-## Why
+## Why ?
 
 - Code clarity →We can hide the complexity from the user by restricting access and simply provide them with the public solutions.
 - Code safety → Ensure that code works as it is expected.
@@ -26,18 +26,18 @@ Fields are often declared private to control access to them from any other class
 ```java
 public class Counter {
    private long current = 0;
-
+ 
    public long getCurrent() {
        return current;
    }
-
-
+ 
+ 
    public long inc() {
        inc(1L);
        return current;
    }
-
-
+ 
+ 
    private void inc(long val) {
        current += val;
    }
@@ -48,12 +48,17 @@ public class Counter {
 
 A package-private access modifier does not require any keyword. If a field, a method or a constructor has this modifier then it can be read or changed from any class inside the same package.
 
+## Protected modifier
+
+- This modifier means that only subclasses and any classes from the same package can use a class member.
+- A top-level class cannot be protected, but an inner one can be declared this way.
+
 ## Summary
 
-- **private** — available only inside a class;
-- **package-private** (also known as **default**, implicit) — available for all classes in the same package;
-- **protected** — available for classes in the same package and for subclasses (will be covered later);
-- **public** — available for all classes everywhere.
+- `private`: available only for the class itself;
+- `default`: available for classes from the same package (= **package-private**);
+- `protected`: available for classes from the same package and the extending classes.
+- `public`: available from everywhere;
 
 ![access modifiers](assets/access-modifiers.png)
 
