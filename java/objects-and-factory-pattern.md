@@ -63,9 +63,9 @@ public class FactoryClient {
 
 There are several possible implementation features:
 
-- the method `newInstance` of `ComputerStaticFactory` takes an enum type to restrict possible values;
-- the method `newInstance` throws an exception if an unsuitable type is passed instead of returning `null`;
-- move the method `newInstance` directly to the base of the hierarchy: `Computer` class;
+- the method `newInstance` of `ComputerStaticFactory` takes an enum type to restrict possible values;
+- the method `newInstance` throws an exception if an unsuitable type is passed instead of returning `null`;
+- move the method `newInstance` directly to the base of the hierarchy: `Computer` class;
 - a factory can have multiple methods that produce instances of different classes or an instance of a default class.
 
 ## Simple factory
@@ -111,10 +111,13 @@ Computer pc = factory.newInstance("PC");
 
 ![factory](assets/factory1.png)
 
-1. **Creator** declares an abstract or virtual method of creating a product. It uses the factory method in its implementation. Samples: Hero Factory, Music Factory, Furniture Factory, DB Factory.
-2. **ConcreteCreator** implements a factory method that returns ConcreteProduct. Samples: Rock Music Factory, Door Furniture Factory, MongoDB Factory.
-3. **Product** defines the interface of products created by the factory method. Samples: Robot, Detail, Transport, Hero, File, Furniture.
-4. **ConcreteProduct** determines the specific type of products. Samples: RobotCleaner, ElfHero, MP3File, Detail13.
+1. **Creator** declares an abstract or virtual method of creating a product. It uses the factory method in its
+ implementation. Samples: Hero Factory, Music Factory, Furniture Factory, DB Factory.
+2. **ConcreteCreator** implements a factory method that returns ConcreteProduct. Samples: Rock Music Factory, Door
+ Furniture Factory, MongoDB Factory.
+3. **Product** defines the interface of products created by the factory method. Samples: Robot, Detail, Transport
+, Hero, File, Furniture.
+4. **ConcreteProduct** determines the specific type of products. Samples: RobotCleaner, ElfHero, MP3File, Detail13.
 
 ### Example
 
@@ -192,4 +195,119 @@ class TestDrive {
  
     }
 }
+```
+
+## Abstract factory
+
+- Abstract Factory is one of the creational patterns.
+- It encapsulates the creational process of related or dependent objects.
+- There is no node to specify the concrete classes of these objects
+
+![abstract-factory.png](assets/abstract-factory.png)
+
+```java
+interface Table {
+    public String getTable();
+}
+
+public class KitchenTable implements Table {
+    @Override
+    public String getTable() {
+        return "There is a kitchen table";
+    }
+}
+
+public class OfficeTable implements Table {
+    @Override
+    public String getTable() {
+        return  "There is an office table";
+    }
+}
+
+interface TableInstruments {
+    public String getInstrument();
+}
+
+public class KitchenTableInstrument implements TableInstruments {
+    @Override
+    public String getInstrument() {
+        return "These are a kitchen table instruments";
+    }
+}
+
+public class OfficeTableInstrument implements TableInstruments {
+    @Override
+    public String getInstrument() {
+        return "These are an office table instruments";
+    }
+}
+
+// abstract factory
+interface TableFactory {
+    public Table makeTable();
+    public TableInstruments makeTableInstruments();
+}
+
+public class KitchenTableFactory implements TableFactory {
+    @Override
+    public Table makeTable() {
+        return new KitchenTable();
+    }
+
+    @Override
+    public TableInstruments makeTableInstruments() {
+        return new KitchenTableInstrument();
+    }
+}
+
+public class OfficeTableFactory implements TableFactory {
+    @Override
+    public Table makeTable() {
+        return new OfficeTable();
+    }
+
+    @Override
+    public TableInstruments makeTableInstruments() {
+        return new OfficeTableInstrument();
+    }
+}
+
+Table table;
+TableInstruments tableInstruments;
+
+TableFactory kitchenTableFactory = new KitchenTableFactory();
+TableFactory officeTableFactory = new OfficeTableFactory();
+
+System.out.println("-I work as a cook. I need a kitchen table");
+System.out.println("-Got It! Give me a sec,- Calling to the KitchenTableFactory. - Bring me the KitchenTable with KitchenTableInstruments");
+Thread.sleep(5000);
+        
+table = kitchenTableFactory.makeTable();
+tableInstruments = kitchenTableFactory.makeTableInstruments();
+
+System.out.println(table.getTable() + "\n" + tableInstruments.getInstrument());
+System.out.println("-There they are!\n");
+Thread.sleep(5000);
+
+System.out.println("-I am office manager. I need an office table");
+System.out.println("-Got It! Give me a sec,- Calling to the OfficeTableFactory. - Bring me the OfficeTable with OfficeTableInstruments");
+Thread.sleep(5000);
+        
+table = officeTableFactory.makeTable();
+tableInstruments = officeTableFactory.makeTableInstruments();
+
+System.out.println(table.getTable() + "\n" + tableInstruments.getInstrument());
+System.out.println("-There they are!");
+
+// -I work as a cook. I need a kitchen table
+// -Got It! Give me a sec,- Calling to the KitchenTableFactory. - Bring me the KitchenTable with KitchenTableInstruments
+// There is a kitchen table
+// These are a kitchen table instruments
+// -There they are!
+
+// -I am office manager. I need an office table
+// -Got It! Give me a sec,- Calling to the OfficeTableFactory. - Bring me the OfficeTable with OfficeTableInstruments
+// There is an office table
+// These are an office table instruments
+// -There they are!
 ```
