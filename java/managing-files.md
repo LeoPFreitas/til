@@ -33,7 +33,8 @@ To create a directory we also need to start by creating an instance of `java.io.
 - `boolean **mkdir**` creates the directory; it returns `true` only if the directory was created, otherwise, it returns 
 `false`.
 - `boolean **mkdirs**` creates the directory including all necessary non-existing parent directories; it returns `true
-` only if the directory was created along with all of the specified parent directories.
+` only if the directory was created along with all of 
+the specified parent directories.
 
 ```java
 File file = new File("/home/art/Documents/dir");
