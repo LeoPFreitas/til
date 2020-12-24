@@ -1,5 +1,6 @@
 # Anonymous classes
 
+- Enable the developer to declare and instantiate a class at the same time
 - An anonymous class always implements an interface or extends another class (concrete or abstract).
 - An anonymous class must override all abstract methods of the superclass. That is, all interface methods must be overridden except default methods. If an anonymous class extends a class that has no abstract methods, it doesn't have to override anything.
 
