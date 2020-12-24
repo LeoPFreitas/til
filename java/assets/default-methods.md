@@ -22,3 +22,24 @@ feature.action(); // Default action
 ### The diamond problem
 
 - Two interfaces with the same default methods (same signature) and different implementations. If some class implement these 2 interfaces, the programmer need to explicity implement the default method.
+
+```java
+class ConsoleWriter implements Printer, Notifier {
+    @Override
+    public void greeting() {
+        Printer.super.greeting();
+    }
+}
+
+interface Printer {
+    default void greeting() {
+    System.out.println("Printer is ready");
+    }
+}
+
+interface Notifier {
+    default void greeting() {
+    System.out.println("Notifier is ready");
+    }
+}
+```
